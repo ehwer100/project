@@ -1,0 +1,12 @@
+
+BIN=x.knnSerialEuclidPEMS
+CC=g++
+
+$(BIN): knnEuclidPEMS.o
+	$(CC) -o $(BIN) knnEuclidPEMS.o
+
+kernel.o: knnEuclidPEMS.cpp
+	$(CC) -c knnEuclidPEMS.cpp 
+
+clean:
+	rm -rf kernel.o $(BIN)

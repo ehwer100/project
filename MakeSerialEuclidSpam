@@ -1,0 +1,12 @@
+
+BIN=x.knnSerialEuclidSpam
+CC=g++
+
+$(BIN): knnEuclidSpam.o
+	$(CC) -o $(BIN) knnEuclidSpam.o
+
+kernel.o: knnEuclidSpam.cpp
+	$(CC) -c knnEuclidSpam.cpp 
+
+clean:
+	rm -rf kernel.o $(BIN)

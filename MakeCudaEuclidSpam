@@ -1,0 +1,13 @@
+
+BIN=x.knnCudaEuclidSpam
+NVCC=nvcc
+NVOPTS=-arch sm_20
+
+$(BIN): knnEuclidSpam.o
+	$(NVCC) $(NVOPTS) -o $(BIN) knnEuclidSpam.o
+
+kernel.o: knnEuclidSpam.cu
+	$(NVCC) $(NVOPTS) -c knnEuclidSpam.cu 
+
+clean:
+	rm -rf kernel.o $(BIN)

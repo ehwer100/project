@@ -1,0 +1,13 @@
+
+BIN=x.knnCudaEuclidPEMS
+NVCC=nvcc
+NVOPTS=-arch sm_20
+
+$(BIN): knnEuclidPEMS.o
+	$(NVCC) $(NVOPTS) -o $(BIN) knnEuclidPEMS.o
+
+kernel.o: knnEuclidPEMS.cu
+	$(NVCC) $(NVOPTS) -c knnEuclidPEMS.cu 
+
+clean:
+	rm -rf kernel.o $(BIN)
