@@ -1,0 +1,13 @@
+
+BIN=x.knnCudaCosineSpam
+NVCC=nvcc
+NVOPTS=-arch sm_20
+
+$(BIN): knnCosineSpam.o
+	$(NVCC) $(NVOPTS) -o $(BIN) knnCosineSpam.o
+
+kernel.o: knnCosineSpam.cu
+	$(NVCC) $(NVOPTS) -c knnCosineSpam.cu 
+
+clean:
+	rm -rf kernel.o $(BIN)

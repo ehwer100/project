@@ -1,0 +1,13 @@
+
+BIN=x.knnCudaCosinePEMS
+NVCC=nvcc
+NVOPTS=-arch sm_20
+
+$(BIN): knnCosinePEMS.o
+	$(NVCC) $(NVOPTS) -o $(BIN) knnCosinePEMS.o
+
+kernel.o: knnCosinePEMS.cu
+	$(NVCC) $(NVOPTS) -c knnCosinePEMS.cu 
+
+clean:
+	rm -rf kernel.o $(BIN)

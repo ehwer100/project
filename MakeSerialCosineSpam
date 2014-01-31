@@ -1,0 +1,12 @@
+
+BIN=x.knnSerialCosineSpam
+CC=g++
+
+$(BIN): knnCosineSpam.o
+	$(CC) -o $(BIN) knnCosineSpam.o
+
+kernel.o: knnCosineSpam.cpp
+	$(CC) -c knnCosineSpam.cpp 
+
+clean:
+	rm -rf kernel.o $(BIN)

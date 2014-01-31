@@ -1,0 +1,12 @@
+
+BIN=x.knnSerialCosinePEMS
+CC=g++
+
+$(BIN): knnCosinePEMS.o
+	$(CC) -o $(BIN) knnCosinePEMS.o
+
+kernel.o: knnCosinePEMS.cpp
+	$(CC) -c knnCosinePEMS.cpp 
+
+clean:
+	rm -rf kernel.o $(BIN)
